@@ -9,25 +9,27 @@
 
 https://github.com/yingzhuo/mysql-helper
 */
-package com.github.yingzhuo.mysqlhelper.domain;
+package com.github.yingzhuo.mysqlhelper.json;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * MySQL 版本
- */
 @Getter
 @Setter
-public class Version implements Serializable {
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Json implements Serializable {
 
-    private String version;
+    private String code = "200";
 
-    @Override
-    public String toString() {
-        return version != null ? version : "null";
-    }
+    private String error = null;
+
+    @Singular("entry")
+    private Map<String, Object> data = new HashMap<>();
 
 }
