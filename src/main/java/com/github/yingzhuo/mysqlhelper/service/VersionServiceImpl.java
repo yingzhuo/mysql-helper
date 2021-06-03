@@ -1,24 +1,22 @@
 package com.github.yingzhuo.mysqlhelper.service;
 
-import com.github.yingzhuo.mysqlhelper.dao.VersionDao;
 import com.github.yingzhuo.mysqlhelper.domain.Version;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class VersionServiceImpl implements VersionService {
+class VersionServiceImpl implements VersionService {
 
-    private final VersionDao versionDao;
-
-    public VersionServiceImpl(VersionDao versionDao) {
-        this.versionDao = versionDao;
-    }
+    @Autowired
+    private SqlSession sqlSession;
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public Version getVersion() {
-        return versionDao.get();
+        return sqlSession.selectOne("Version.get");
     }
 
 }

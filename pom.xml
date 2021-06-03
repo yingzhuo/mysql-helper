@@ -17,7 +17,6 @@
 
         <!-- tool + framework -->
         <spring.boot.version>2.5.0</spring.boot.version>
-        <jackson.version>2.12.3</jackson.version>
 
         <!-- tool -->
         <lombok.version>1.18.20</lombok.version>
