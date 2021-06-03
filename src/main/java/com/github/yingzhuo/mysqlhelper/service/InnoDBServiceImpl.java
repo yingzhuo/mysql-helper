@@ -11,7 +11,7 @@ https://github.com/yingzhuo/mysql-helper
 */
 package com.github.yingzhuo.mysqlhelper.service;
 
-import com.github.yingzhuo.mysqlhelper.domain.DatabaseAndTables;
+import com.github.yingzhuo.mysqlhelper.domain.DatabaseAndTable;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ class InnoDBServiceImpl implements InnoDBService {
     private SqlSession sqlSession;
 
     @Override
-    public List<DatabaseAndTables> findNonInnoDBTables() {
+    public List<DatabaseAndTable> findNonInnoDBTables() {
         return sqlSession.selectList("InnoDB.findNonInnoDBTables");
     }
 

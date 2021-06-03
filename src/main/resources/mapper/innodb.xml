@@ -3,16 +3,13 @@
 <!--suppress ALL -->
 <mapper namespace="InnoDB">
 
-    <select id="findNonInnoDBTables" resultType="DatabaseAndTables">
+    <select id="findNonInnoDBTables" resultType="DatabaseAndTable">
         <![CDATA[
-        SELECT (@row_number := @row_number + 1)         AS rowNumber,
-               t.TABLE_SCHEMA                           AS databaseName,
-               GROUP_CONCAT(t.TABLE_NAME SEPARATOR ',') AS tableNames
-        FROM information_schema.`TABLES` AS t,
-             (SELECT @row_number := 0) AS rn
+        SELECT t.TABLE_SCHEMA AS 'database',
+               t.TABLE_NAME   AS 'table'
+        FROM information_schema.`TABLES` AS t
         WHERE t.TABLE_SCHEMA NOT IN ('sys', 'information_schema', 'performance_schema', 'mysql')
           AND t.ENGINE <> 'InnoDB'
-        GROUP BY databaseName
         ]]>
     </select>
 

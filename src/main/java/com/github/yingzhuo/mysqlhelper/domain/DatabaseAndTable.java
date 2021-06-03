@@ -20,10 +20,9 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class DatabaseAndTables implements Serializable {
+public class DatabaseAndTable implements Serializable {
 
-    private Integer rowNumber;
-    private String databaseName;
-    private String tableNames;
+    private String database;
+    private String table;
 
 }
