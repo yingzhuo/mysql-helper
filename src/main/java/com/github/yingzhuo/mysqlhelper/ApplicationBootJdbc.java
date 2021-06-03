@@ -24,7 +24,7 @@ import javax.sql.DataSource;
 @Configuration
 @MapperScan(
         annotationClass = Mapper.class,
-        basePackages = "com.github.yingzhuo.mysqlhelper"
+        basePackages = StringPool.BASE_PACKAGE
 )
 @EnableTransactionManagement
 class ApplicationBootJdbc {

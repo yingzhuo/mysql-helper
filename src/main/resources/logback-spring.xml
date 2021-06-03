@@ -9,12 +9,14 @@
 
     <logger name="com.github.yingzhuo.mysqlhelper" additivity="true" level="trace"/>
     <logger name="org.springframework" additivity="true" level="info"/>
+    <logger name="org.springframework.boot.availability.ApplicationAvailabilityBean" additivity="true" level="warn"/>
     <logger name="org.jboss.logging" additivity="true" level="warn"/>
     <logger name="org.apache.coyote" additivity="true" level="warn"/>
     <logger name="org.apache.catalina" additivity="true" level="warn"/>
     <logger name="com.zaxxer.hikari" additivity="true" level="info"/>
     <logger name="com.baomidou.mybatisplus" additivity="true" level="info"/>
     <logger name="org.mybatis" additivity="true" level="info"/>
+    <logger name="org.apache.ibatis" additivity="true" level="info"/>
     <logger name="io.micrometer" additivity="true" level="info"/>
     <logger name="_org.springframework.web.servlet.HandlerMapping.Mappings" additivity="true" level="info"/>
 
