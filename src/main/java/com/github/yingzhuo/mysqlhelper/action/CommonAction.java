@@ -12,23 +12,30 @@ https://github.com/yingzhuo/mysql-helper
 package com.github.yingzhuo.mysqlhelper.action;
 
 import com.github.yingzhuo.mysqlhelper.json.Json;
-import com.github.yingzhuo.mysqlhelper.service.VersionService;
+import com.github.yingzhuo.mysqlhelper.service.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("version")
-class VersionAction {
+@RequestMapping("common")
+class CommonAction {
 
     @Autowired
-    VersionService service;
+    CommonService service;
 
-    @GetMapping
-    Json get() {
+    @GetMapping("version")
+    Json getVersion() {
         return Json.builder()
                 .entry("version", service.getVersionAsString())
+                .build();
+    }
+
+    @GetMapping("database")
+    Json getAllDatabaseNames() {
+        return Json.builder()
+                .entry("databases", service.getAllDatabaseNames())
                 .build();
     }
 

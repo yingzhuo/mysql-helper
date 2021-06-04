@@ -11,6 +11,7 @@ https://github.com/yingzhuo/mysql-helper
 */
 package com.github.yingzhuo.mysqlhelper.service;
 
+import com.github.yingzhuo.mysqlhelper.domain.DatabaseMeta;
 import com.github.yingzhuo.mysqlhelper.domain.Version;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
-class VersionServiceImpl implements VersionService {
+class CommonServiceImpl implements CommonService {
 
     @Autowired
     private SqlSession sqlSession;
@@ -27,7 +30,13 @@ class VersionServiceImpl implements VersionService {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public Version getVersion() {
-        return sqlSession.selectOne("Version.get");
+        return sqlSession.selectOne("Common.getVersion");
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public List<DatabaseMeta> getAllDatabaseMetas() {
+        return sqlSession.selectList("Common.getAllDatabaseMetas");
     }
 
 }

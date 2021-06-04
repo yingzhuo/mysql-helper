@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--suppress ALL -->
+<mapper namespace="Common">
+
+    <select id="getVersion" resultType="Version">
+        SELECT VERSION() AS version
+    </select>
+
+    <select id="getAllDatabaseMetas" resultType="DatabaseMeta">
+        SELECT s.SCHEMA_NAME                AS databaseName,
+               s.DEFAULT_CHARACTER_SET_NAME AS defaultCharsetName,
+               s.DEFAULT_COLLATION_NAME     AS defaultCollationName
+        FROM information_schema.`SCHEMATA` AS s
+        WHERE s.SCHEMA_NAME NOT IN ('sys', 'information_schema', 'performance_schema', 'mysql')
+    </select>
+
+</mapper>

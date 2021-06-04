@@ -9,7 +9,7 @@
 
 https://github.com/yingzhuo/mysql-helper
 */
-package com.github.yingzhuo.mysqlhelper.action;
+package com.github.yingzhuo.mysqlhelper.exception;
 
 import com.github.yingzhuo.mysqlhelper.json.Json;
 import org.springframework.http.HttpStatus;

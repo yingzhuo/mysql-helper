@@ -14,7 +14,7 @@ package com.github.yingzhuo.mysqlhelper;
 /**
  * @author 应卓
  */
-public abstract class StringPool {
+public interface StringPool {
 
     public static final String BASE_PACKAGE = "com.github.yingzhuo.mysqlhelper";
 
