@@ -11,10 +11,10 @@ https://github.com/yingzhuo/mysql-helper
 */
 package com.github.yingzhuo.mysqlhelper.service;
 
+import com.github.yingzhuo.mysqlhelper.config.FocusOn;
 import com.github.yingzhuo.mysqlhelper.domain.DatabaseMeta;
 import com.github.yingzhuo.mysqlhelper.domain.Version;
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,10 +22,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-class CommonServiceImpl implements CommonService {
+class CommonServiceImpl extends AbstractServiceBase implements CommonService {
 
-    @Autowired
-    private SqlSession sqlSession;
+    public CommonServiceImpl(FocusOn focusOn, SqlSession sqlSession) {
+        super(focusOn, sqlSession);
+    }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)

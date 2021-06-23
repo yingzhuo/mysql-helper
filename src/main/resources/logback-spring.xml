@@ -18,6 +18,7 @@
     <logger name="org.mybatis" additivity="true" level="info"/>
     <logger name="org.apache.ibatis" additivity="true" level="info"/>
     <logger name="io.micrometer" additivity="true" level="info"/>
+    <logger name="org.hibernate.validator" additivity="true" level="info"/>
     <logger name="_org.springframework.web.servlet.HandlerMapping.Mappings" additivity="true" level="info"/>
 
     <root level="DEBUG">

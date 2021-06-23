@@ -16,9 +16,9 @@ package com.github.yingzhuo.mysqlhelper;
  */
 public final class StringPool {
 
+    public static final String BASE_PACKAGE = "com.github.yingzhuo.mysqlhelper";
+
     private StringPool() {
     }
-
-    public static final String BASE_PACKAGE = "com.github.yingzhuo.mysqlhelper";
 
 }
