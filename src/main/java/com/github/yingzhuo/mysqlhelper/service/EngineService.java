@@ -15,11 +15,13 @@ import com.github.yingzhuo.mysqlhelper.domain.DatabaseAndTable;
 
 import java.util.List;
 
-public interface InnoDBService {
+/**
+ * @author 应卓
+ */
+public interface EngineService {
 
-    /**
-     * 找出所有没有使用InnoDB引擎的数据库和表
-     */
-    public List<DatabaseAndTable> findNonInnoDBTables();
+    public List<DatabaseAndTable> findByEngine(String engine);
+
+    public List<DatabaseAndTable> findByNotEngine(String engine);
 
 }

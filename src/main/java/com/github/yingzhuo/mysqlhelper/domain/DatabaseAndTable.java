@@ -24,5 +24,6 @@ public class DatabaseAndTable implements Serializable {
 
     private String database;
     private String table;
+    private String engine;
 
 }

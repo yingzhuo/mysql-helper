@@ -12,24 +12,39 @@ https://github.com/yingzhuo/mysql-helper
 package com.github.yingzhuo.mysqlhelper.service;
 
 import com.github.yingzhuo.mysqlhelper.domain.DatabaseAndTable;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author 应卓
+ */
 @Service
-class InnoDBServiceImpl implements InnoDBService {
+public class EngineServiceImpl implements EngineService {
 
     @Autowired
     private SqlSession sqlSession;
 
     @Override
-    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<DatabaseAndTable> findNonInnoDBTables() {
-        return sqlSession.selectList("InnoDB.findNonInnoDBTables");
+    public List<DatabaseAndTable> findByEngine(String engine) {
+        if (StringUtils.isBlank(engine)) {
+            return Collections.emptyList();
+        }
+
+        return sqlSession.selectList("Engine.findByEngine", engine);
+    }
+
+    @Override
+    public List<DatabaseAndTable> findByNotEngine(String engine) {
+        if (StringUtils.isBlank(engine)) {
+            return Collections.emptyList();
+        }
+
+        return sqlSession.selectList("Engine.findByNotEngine", engine);
     }
 
 }

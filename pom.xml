@@ -94,6 +94,13 @@
             <version>${mybatis.plus.version}</version>
         </dependency>
 
+        <!-- commons -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
         <!-- sfl4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
