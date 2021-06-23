@@ -19,4 +19,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 @Deprecated
 public interface UnusedMapper {
+    // 仅为了防止警告
 }

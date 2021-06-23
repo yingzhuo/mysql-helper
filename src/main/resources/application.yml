@@ -18,6 +18,7 @@ spring:
   profiles:
     active:
       - dev
+    include: [ ]
   autoconfigure:
     exclude: [ ]
   aop:
@@ -32,11 +33,6 @@ spring:
     register-shutdown-hook: true
   banner:
     location: banner.txt
-  freemarker:
-    enabled: true
-    template-loader-path: "classpath:templates/"
-    suffix: ".ftlh"
-    expose-request-attributes: true
   jackson:
     locale: "zh_CN"
     time-zone: "Asia/Shanghai"
@@ -57,11 +53,11 @@ spring:
     timeout-per-shutdown-phase: "30s"
   jmx:
     enabled: false
-#  mvc:
-#    throw-exception-if-no-handler-found: true
-#  web:
-#    resources:
-#      add-mappings: true
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
   servlet:
     multipart:
       enabled: true
@@ -76,7 +72,7 @@ server:
     context-path: "/"
   error:
     whitelabel:
-      enabled: true
+      enabled: false
   compression:
     enabled: true
     min-response-size: 2KB
@@ -113,6 +109,8 @@ management:
       base-path: "/actuator"
       exposure:
         include: "*"
+
+info: { }
 
 # ----------------------------------------------------------------------------------------------------------------------
 # mybatis
