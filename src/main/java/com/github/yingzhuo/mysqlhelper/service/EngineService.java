@@ -20,8 +20,6 @@ import java.util.List;
  */
 public interface EngineService {
 
-    public List<DatabaseAndTable> findByEngine(String engine);
-
     public List<DatabaseAndTable> findByNotEngine(String engine);
 
 }

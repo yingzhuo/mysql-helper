@@ -8,26 +8,23 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 
 @Slf4j
-@SpringBootTest
+@SpringBootTest(args = {
+        "--mysql-helper.focus.databases=playground"
+})
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestPropertySource(properties = {"TEST=true"})
 public class EngineServiceTestCases {
 
     @Autowired
     private EngineService engineService;
 
     @Test
-    @DisplayName("findByEngine by 'innodb'")
+    @DisplayName("测试: findByNotEngine")
     public void test1() {
-        val list = engineService.findByEngine("innodb");
-        list.forEach(System.out::println);
-    }
-
-    @Test
-    @DisplayName("findByNotEngine by 'innodb'")
-    public void test2() {
-        val list = engineService.findByNotEngine("innodb");
+        val list = engineService.findByNotEngine("myisam");
         list.forEach(System.out::println);
     }
 

@@ -14,6 +14,7 @@ package com.github.yingzhuo.mysqlhelper.service;
 import com.github.yingzhuo.mysqlhelper.config.FocusOn;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.Collections;
 import java.util.Set;
 
 /**
@@ -22,15 +23,11 @@ import java.util.Set;
 abstract class AbstractServiceBase {
 
     protected final SqlSession sqlSession;
-    private final FocusOn focusOn;
+    protected final Set<String> focusDatabases;
 
     public AbstractServiceBase(FocusOn focusOn, SqlSession sqlSession) {
-        this.focusOn = focusOn;
+        this.focusDatabases = Collections.unmodifiableSet(focusOn.getDatabases());  // unmodifiable
         this.sqlSession = sqlSession;
-    }
-
-    protected final Set<String> getFocusDatabases() {
-        return focusOn.getDatabases();
     }
 
 }

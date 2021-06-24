@@ -18,7 +18,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 应卓
@@ -31,21 +33,15 @@ public class EngineServiceImpl extends AbstractServiceBase implements EngineServ
     }
 
     @Override
-    public List<DatabaseAndTable> findByEngine(String engine) {
-        if (StringUtils.isBlank(engine)) {
-            return Collections.emptyList();
-        }
-
-        return sqlSession.selectList("Engine.findByEngine", engine);
-    }
-
-    @Override
     public List<DatabaseAndTable> findByNotEngine(String engine) {
         if (StringUtils.isBlank(engine)) {
             return Collections.emptyList();
         }
 
-        return sqlSession.selectList("Engine.findByNotEngine", engine);
+        Map<String, Object> params = new HashMap<>();
+        params.put("engine", engine);
+        params.put("focus", super.focusDatabases);
+        return sqlSession.selectList("Engine.findByNotEngine", params);
     }
 
 }

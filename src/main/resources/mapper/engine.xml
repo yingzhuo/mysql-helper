@@ -3,26 +3,13 @@
 <!--suppress ALL -->
 <mapper namespace="Engine">
 
-    <select id="findByEngine" parameterType="string" resultType="DatabaseAndTable">
-        <![CDATA[
+    <select id="findByNotEngine" parameterType="map" resultType="DatabaseAndTable">
         SELECT t.TABLE_SCHEMA AS 'database',
                t.TABLE_NAME   AS 'table',
                t.ENGINE       AS `engine`
         FROM information_schema.`TABLES` AS t
-        WHERE t.TABLE_SCHEMA NOT IN ('sys', 'information_schema', 'performance_schema', 'mysql')
-          AND t.ENGINE = #{engine}
-        ]]>
-    </select>
-
-    <select id="findByNotEngine" parameterType="string" resultType="DatabaseAndTable">
-        <![CDATA[
-        SELECT t.TABLE_SCHEMA AS 'database',
-               t.TABLE_NAME   AS 'table',
-               t.ENGINE       AS `engine`
-        FROM information_schema.`TABLES` AS t
-        WHERE t.TABLE_SCHEMA NOT IN ('sys', 'information_schema', 'performance_schema', 'mysql')
-          AND t.ENGINE <> #{engine}
-        ]]>
+        WHERE t.TABLE_SCHEMA IN <foreach collection="focus" open="(" close=")" item="it">#{it}</foreach>
+          AND t.ENGINE &lt;&gt; #{engine}
     </select>
 
 </mapper>
