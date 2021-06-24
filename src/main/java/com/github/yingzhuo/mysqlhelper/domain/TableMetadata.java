@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class DatabaseAndTable implements Serializable {
+public class TableMetadata implements Serializable {
 
     private String database;
     private String table;

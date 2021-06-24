@@ -12,7 +12,7 @@ https://github.com/yingzhuo/mysql-helper
 package com.github.yingzhuo.mysqlhelper.service;
 
 import com.github.yingzhuo.mysqlhelper.config.FocusOn;
-import com.github.yingzhuo.mysqlhelper.domain.DatabaseAndTable;
+import com.github.yingzhuo.mysqlhelper.domain.TableMetadata;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
@@ -33,7 +33,7 @@ public class EngineServiceImpl extends AbstractServiceBase implements EngineServ
     }
 
     @Override
-    public List<DatabaseAndTable> findByNotEngine(String engine) {
+    public List<TableMetadata> findTableMetadataByNotEngine(String engine) {
         if (StringUtils.isBlank(engine)) {
             return Collections.emptyList();
         }

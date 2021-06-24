@@ -3,7 +3,7 @@
 <!--suppress ALL -->
 <mapper namespace="Engine">
 
-    <select id="findByNotEngine" parameterType="map" resultType="DatabaseAndTable">
+    <select id="findByNotEngine" parameterType="map" resultType="TableMetadata">
         SELECT t.TABLE_SCHEMA AS 'database',
                t.TABLE_NAME   AS 'table',
                t.ENGINE       AS `engine`

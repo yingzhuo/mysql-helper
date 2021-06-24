@@ -11,7 +11,7 @@ https://github.com/yingzhuo/mysql-helper
 */
 package com.github.yingzhuo.mysqlhelper.service;
 
-import com.github.yingzhuo.mysqlhelper.domain.DatabaseAndTable;
+import com.github.yingzhuo.mysqlhelper.domain.TableMetadata;
 
 import java.util.List;
 
@@ -20,6 +20,6 @@ import java.util.List;
  */
 public interface EngineService {
 
-    public List<DatabaseAndTable> findByNotEngine(String engine);
+    public List<TableMetadata> findTableMetadataByNotEngine(String engine);
 
 }

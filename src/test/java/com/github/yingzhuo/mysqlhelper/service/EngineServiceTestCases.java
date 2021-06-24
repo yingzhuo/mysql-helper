@@ -22,9 +22,9 @@ public class EngineServiceTestCases {
     private EngineService engineService;
 
     @Test
-    @DisplayName("测试: findByNotEngine")
+    @DisplayName("测试: findTableMetadataByNotEngine")
     public void test1() {
-        val list = engineService.findByNotEngine("myisam");
+        val list = engineService.findTableMetadataByNotEngine("myisam");
         list.forEach(System.out::println);
     }
 
