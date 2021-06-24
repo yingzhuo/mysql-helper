@@ -12,7 +12,9 @@ import org.springframework.test.context.TestPropertySource;
 
 @Slf4j
 @SpringBootTest(args = {
-        "--mysql-helper.focus.databases=playground"
+        "--mysql-helper.focus.databases=playground",
+        "--mysql-helper.datasource.host=localhost",
+        "--mysql-helper.datasource.port=3306"
 })
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestPropertySource(properties = {"TEST=true"})

@@ -16,8 +16,7 @@ spring:
   application:
     name: "mysql-helper"
   profiles:
-    active:
-      - dev
+    active: [ ]
     include: [ ]
   autoconfigure:
     exclude: [ ]

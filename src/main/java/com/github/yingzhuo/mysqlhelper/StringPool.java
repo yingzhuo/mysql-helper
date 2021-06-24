@@ -18,6 +18,8 @@ public final class StringPool {
 
     public static final String BASE_PACKAGE = "com.github.yingzhuo.mysqlhelper";
 
+    public static final String MYSQL_DRIVER_CLASS = "com.mysql.cj.jdbc.Driver";
+
     private StringPool() {
     }
 
