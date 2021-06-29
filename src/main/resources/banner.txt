@@ -7,3 +7,12 @@
         |___/                                 |_|
 
 https://github.com/yingzhuo/mysql-helper
+
+= APP =====================================================================================================================================
+App Group    : ${info.application.group}
+App Name     : ${info.application.name}
+App Version  : ${info.application.version}
+
+= Tools ===================================================================================================================================
+JDK          : ${info.primary-framework-version.JDK}
+spring-boot  : ${info.primary-framework-version.spring-boot}

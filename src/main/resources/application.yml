@@ -109,7 +109,14 @@ management:
       exposure:
         include: "*"
 
-info: { }
+info:
+  application:
+    group: @project.groupId@
+    name: @project.artifactId@
+    version: @project.version@
+  primary-framework-version:
+    JDK: @java.version@
+    spring-boot: @spring.boot.version@
 
 # ----------------------------------------------------------------------------------------------------------------------
 # mybatis
