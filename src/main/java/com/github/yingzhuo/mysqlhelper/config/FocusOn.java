@@ -39,10 +39,10 @@ public class FocusOn implements InitializingBean, Serializable {
     private Set<String> databases;
 
     @Override
-    public void afterPropertiesSet() throws Exception {
-        log.info(StringUtils.repeat('~', 80));
-        log.info("FOCUS ON: {}", StringUtils.join(databases, ", "));
-        log.info(StringUtils.repeat('~', 80));
+    public void afterPropertiesSet() {
+        if (log.isInfoEnabled()) {
+            log.info("FOCUS ON: {}", StringUtils.join(databases, ", "));
+        }
     }
 
 }

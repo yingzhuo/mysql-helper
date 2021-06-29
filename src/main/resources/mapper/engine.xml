@@ -5,11 +5,12 @@
 
     <select id="findByNotEngine" parameterType="map" resultType="TableMetadata">
         SELECT t.TABLE_SCHEMA AS 'database',
-               t.TABLE_NAME   AS 'table',
-               t.ENGINE       AS `engine`
+        t.TABLE_NAME AS 'table',
+        t.ENGINE AS `engine`
         FROM information_schema.`TABLES` AS t
-        WHERE t.TABLE_SCHEMA IN <foreach collection="focus" open="(" close=")" item="it">#{it}</foreach>
-          AND t.ENGINE &lt;&gt; #{engine}
+        WHERE t.TABLE_SCHEMA IN
+        <foreach collection="focus" open="(" close=")" item="it">#{it}</foreach>
+        AND t.ENGINE &lt;&gt; #{engine}
     </select>
 
 </mapper>

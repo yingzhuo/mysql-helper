@@ -1,3 +1,14 @@
+/*
+
+ __  __       ____   ___  _       _   _      _
+|  \/  |_   _/ ___| / _ \| |     | | | | ___| |_ __   ___ _ __
+| |\/| | | | \___ \| | | | |     | |_| |/ _ \ | '_ \ / _ \ '__|
+| |  | | |_| |___) | |_| | |___  |  _  |  __/ | |_) |  __/ |
+|_|  |_|\__, |____/ \__\_\_____| |_| |_|\___|_| .__/ \___|_|
+        |___/                                 |_|
+
+https://github.com/yingzhuo/mysql-helper
+*/
 package com.github.yingzhuo.mysqlhelper.config;
 
 import lombok.Getter;
@@ -42,10 +53,12 @@ public class DataSourceConf implements InitializingBean, Serializable {
 
     @Override
     public void afterPropertiesSet() {
-        log.debug("DataSource - host: {}", host);
-        log.debug("DataSource - port: {}", port);
-        log.debug("DataSource - username: {}", username);
-        log.debug("DataSource - password: {}", password);
+        if (log.isInfoEnabled()) {
+            log.info("DATASOURCE: host: {}", host);
+            log.info("DATASOURCE: port: {}", port);
+            log.info("DATASOURCE: username: {}", username);
+            log.info("DATASOURCE: password: {}", password);
+        }
     }
 
 }

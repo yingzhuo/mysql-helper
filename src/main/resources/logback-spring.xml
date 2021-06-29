@@ -10,7 +10,7 @@
     <logger name="com.github.yingzhuo.mysqlhelper" additivity="true" level="trace"/>
     <logger name="org.springframework" additivity="true" level="info"/>
     <logger name="org.springframework.boot.availability.ApplicationAvailabilityBean" additivity="true" level="warn"/>
-    <logger name="org.jboss.logging" additivity="true" level="warn"/>
+    <logger name="org.jboss.logging" additivity="true" level="off"/>
     <logger name="org.apache.coyote" additivity="true" level="warn"/>
     <logger name="org.apache.catalina" additivity="true" level="warn"/>
     <logger name="com.zaxxer.hikari" additivity="true" level="info"/>
